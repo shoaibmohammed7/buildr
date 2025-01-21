@@ -1,27 +1,17 @@
-import React, { useState } from 'react';
-import { InitialPrompt } from './components/InitialPrompt';
-import { Workspace } from './components/workspace/Workspace';
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { Builder } from './pages/Builder';
+import { parseXml } from './steps';
 
 function App() {
-  const [hasInitialPrompt, setHasInitialPrompt] = useState(false);
-
-  const handleInitialPrompt = (prompt: string) => {
-    console.log('Initial prompt:', prompt);
-    setHasInitialPrompt(true);
-  };
-
-  const handleNewPrompt = (prompt: string) => {
-    console.log('New prompt:', prompt);
-  };
-
   return (
-    <div className="min-h-screen bg-gray-950">
-      {!hasInitialPrompt ? (
-        <InitialPrompt onSubmit={handleInitialPrompt} />
-      ) : (
-        <Workspace onNewPrompt={handleNewPrompt} />
-      )}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/builder" element={<Builder />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
