@@ -1,4 +1,4 @@
-### Buildr is a website builder application developed inspired from v0/bolt
+### Buildr is a website builder application inspired from v0/bolt
 
 This Turborepo includes the following packages/apps:
 
